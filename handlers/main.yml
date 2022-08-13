@@ -1,2 +1,6 @@
 ---
-# handlers file for rpi_swap
+
+- name: restart service
+  ansible.builtin.service:
+    name: dphys-swapfile.service
+    state: restarted

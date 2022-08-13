@@ -1,2 +1,4 @@
 ---
-# defaults file for rpi_swap
+
+rpi_swap_factor: 2
+
