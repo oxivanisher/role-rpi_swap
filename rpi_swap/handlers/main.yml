@@ -1,6 +1,0 @@
----
-
-- name: restart service
-  ansible.builtin.service:
-    name: dphys-swapfile.service
-    state: restarted
