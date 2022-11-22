@@ -15,7 +15,7 @@
   notify: Restart dphys-swapfile service
 
 - name: Enable dphys swapfile
-  ansible.builtin.servie:
+  ansible.builtin.service:
     name: dphys-swapfile.service
     enabled: true
     state: started
