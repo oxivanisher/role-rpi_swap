@@ -5,11 +5,17 @@
     path: /etc/dphys-swapfile
     regexp: '^CONF_SWAPSIZE='
     line: "#CONF_SWAPSIZE=100"
-  notify: restart service
+  notify: Restart dphys-swapfile service
 
 - name: configure dphys swapfile factor
   ansible.builtin.lineinfile:
     path: /etc/dphys-swapfile
     regexp: 'CONF_SWAPFACTOR='
     line: "CONF_SWAPFACTOR={{ rpi_swap_factor }}"
-  notify: restart service
+  notify: Restart dphys-swapfile service
+
+- name: Enable dphys swapfile
+  ansible.builtin.servie:
+    name: dphys-swapfile.service
+    enabled: true
+    state: started
