@@ -1,5 +1,10 @@
 ---
 
+- name: Ensure package is installed (thx to screenly-ose for removing it)
+  ansible.builtin.package:
+    name: dphys-swapfile
+    state: present
+
 - name: configure dphys swapfile size
   ansible.builtin.lineinfile:
     path: /etc/dphys-swapfile
