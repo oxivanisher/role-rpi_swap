@@ -5,14 +5,14 @@
     name: dphys-swapfile
     state: present
 
-- name: configure dphys swapfile size
+- name: Configure dphys swapfile size
   ansible.builtin.lineinfile:
     path: /etc/dphys-swapfile
     regexp: '^CONF_SWAPSIZE='
     line: "#CONF_SWAPSIZE=100"
   notify: Restart dphys-swapfile service
 
-- name: configure dphys swapfile factor
+- name: Configure dphys swapfile factor
   ansible.builtin.lineinfile:
     path: /etc/dphys-swapfile
     regexp: 'CONF_SWAPFACTOR='
