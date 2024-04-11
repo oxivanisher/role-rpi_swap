@@ -4,3 +4,5 @@
   ansible.builtin.service:
     name: dphys-swapfile.service
     state: restarted
+  become: true
+  become_user: root

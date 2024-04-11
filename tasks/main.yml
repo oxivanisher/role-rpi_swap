@@ -4,6 +4,8 @@
   ansible.builtin.package:
     name: dphys-swapfile
     state: present
+  become: true
+  become_user: root
 
 - name: Configure dphys swapfile size
   ansible.builtin.lineinfile:
@@ -11,6 +13,8 @@
     regexp: '^CONF_SWAPSIZE='
     line: "#CONF_SWAPSIZE=100"
   notify: Restart dphys-swapfile service
+  become: true
+  become_user: root
 
 - name: Configure dphys swapfile factor
   ansible.builtin.lineinfile:
@@ -18,9 +22,13 @@
     regexp: 'CONF_SWAPFACTOR='
     line: "CONF_SWAPFACTOR={{ rpi_swap_factor }}"
   notify: Restart dphys-swapfile service
+  become: true
+  become_user: root
 
 - name: Enable dphys swapfile
   ansible.builtin.service:
     name: dphys-swapfile.service
     enabled: true
     state: started
+  become: true
+  become_user: root
